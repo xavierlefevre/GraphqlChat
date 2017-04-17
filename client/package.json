@@ -4,14 +4,7 @@
 	"private": true,
 	"scripts": {
 		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest",
-		"precommit": "lint-staged"
-	},
-	"lint-staged": {
-		"*.js": [
-			"prettier --write",
-			"git add"
-		]
+		"test": "jest"
 	},
 	"dependencies": {
 		"react": "16.0.0-alpha.6",
@@ -26,7 +19,6 @@
 		"eslint-plugin-prettier": "^2.0.1",
 		"husky": "^0.13.3",
 		"jest": "19.0.2",
-		"lint-staged": "^3.4.0",
 		"prettier": "^1.1.0",
 		"react-test-renderer": "16.0.0-alpha.6"
 	},
