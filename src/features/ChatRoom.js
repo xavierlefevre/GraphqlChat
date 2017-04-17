@@ -34,7 +34,7 @@ export default class ChatRoom extends Component {
   render() {
     return (
       <View style={styles.chatRoom}>
-        <ScrollView style={styles.messages}>
+        <ScrollView contentContainerStyle={styles.messages}>
           {this.displayMessages()}
         </ScrollView>
         <TextInput
@@ -51,12 +51,12 @@ export default class ChatRoom extends Component {
 
 const styles = StyleSheet.create({
   messages: {
-    flex: 1
+    flex: 1,
+    justifyContent: "flex-end",
+    paddingBottom: 25
   },
   input: {
     height: 40,
-    flex: 0,
-    borderWidth: 1,
-    borderColor: "pink"
+    flex: 0
   }
 });
