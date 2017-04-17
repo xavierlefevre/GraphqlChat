@@ -1,10 +1,25 @@
-var express = require('express')
-var app = express()
+var express = require('express');
+var graphqlHTTP = require('express-graphql');
+var { buildSchema } = require('graphql');
 
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
+var schema = buildSchema(`
+  type Query {
+    hello: String
+  }
+`);
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-})
+var root = {
+  hello: () => {
+    return 'Hello world!';
+  },
+};
+
+var app = express();
+app.use('/graphql', graphqlHTTP({
+  schema: schema,
+  rootValue: root,
+  graphiql: true,
+}));
+app.listen(4000);
+
+console.log('Running a GraphQL API server at localhost:4000/graphql');
