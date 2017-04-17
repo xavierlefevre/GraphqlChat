@@ -5,15 +5,23 @@ import conversation from "GraphqlChat/src/fixtures";
 
 export default class ChatRoom extends Component {
   state = {
-    conversation
+    conversation,
+    message: ""
   };
+
+  onChangeText(text) {
+    this.setState({
+      message: text
+    });
+  }
 
   saveMessage(event) {
     this.setState({
       conversation: [
         ...this.state.conversation,
         { text: event.text, timestamp: new Date().getTime() }
-      ]
+      ],
+      message: ""
     });
   }
 
@@ -33,6 +41,8 @@ export default class ChatRoom extends Component {
           style={styles.input}
           placeholder="Send a message"
           onSubmitEditing={({ nativeEvent }) => this.saveMessage(nativeEvent)}
+          onChangeText={text => this.onChangeText(text)}
+          value={this.state.message}
         />
       </View>
     );
