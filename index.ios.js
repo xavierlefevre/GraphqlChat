@@ -1,4 +1,4 @@
-import { AppRegistry } from 'react-native';
-import App from './src';
+import { AppRegistry } from "react-native";
+import App from "GraphqlChat/src";
 
-AppRegistry.registerComponent('GraphqlChat', () => App);
+AppRegistry.registerComponent("GraphqlChat", () => App);

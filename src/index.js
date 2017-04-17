@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
+import { ChatRoom } from "GraphqlChat/src/features";
+
 export default class GraphqlChat extends Component {
   state = {
     showChatRoom: false
@@ -15,11 +17,13 @@ export default class GraphqlChat extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity onPress={() => this.accessChatRoom()}>
-          <Text>
-            Access Chat Room
-          </Text>
-        </TouchableOpacity>
+        {this.state.showChatRoom
+          ? <ChatRoom />
+          : <TouchableOpacity onPress={() => this.accessChatRoom()}>
+              <Text>
+                Access Chat Room
+              </Text>
+            </TouchableOpacity>}
       </View>
     );
   }
@@ -31,15 +35,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#F5FCFF"
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
-  },
-  instructions: {
-    textAlign: "center",
-    color: "#333333",
-    marginBottom: 5
   }
 });
