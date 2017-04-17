@@ -7,19 +7,22 @@
 		"test": "jest",
 		"precommit": "lint-staged"
 	},
-  "lint-staged": {
-    "*.js": [
-      "prettier --write",
-      "git add"
-    ]
-  },
+	"lint-staged": {
+		"*.js": [
+			"prettier --write",
+			"git add"
+		]
+	},
 	"dependencies": {
 		"react": "16.0.0-alpha.6",
 		"react-native": "0.43.3"
 	},
 	"devDependencies": {
+		"babel-eslint": "^7.2.2",
 		"babel-jest": "19.0.0",
 		"babel-preset-react-native": "1.9.1",
+		"eslint": "^3.19.0",
+		"eslint-plugin-prettier": "^2.0.1",
 		"husky": "^0.13.3",
 		"jest": "19.0.2",
 		"lint-staged": "^3.4.0",
